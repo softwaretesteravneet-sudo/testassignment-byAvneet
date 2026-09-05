@@ -1,0 +1,6 @@
+[project]
+name = "rapidtester-playwright"
+version = "1.0.0"
+description = "Playwright Python suite for Rapidusertests auth flows"
+requires-python = ">=3.10"
+readme = "README.md"
