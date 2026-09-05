@@ -381,7 +381,7 @@ Put an enterprise-directory email and password in `.env` as `SSO_EMAIL` and `SSO
 
 ## Configuration (`.env`)
 
-Fill these from the assignment PDF. None of the secret values are stored in git.
+`.env` is optional. If a variable is missing, the suite uses the values from the assignment PDF so CI and a fresh clone can run `pytest` without GitHub secrets. A local `.env` still overrides those defaults and is gitignored.
 
 | Variable | Required | Purpose |
 | --- | --- | --- |
@@ -398,7 +398,7 @@ Fill these from the assignment PDF. None of the secret values are stored in git.
 | `BROWSER_CHANNEL` | Optional | Default `chrome` |
 | `BROWSER_LOCALE` | Optional | Default `de-DE` |
 
-If a required value is missing, the suite stops with a clear error asking you to copy `.env.example` to `.env`.
+GitHub Actions does not need repository secrets for the assignment account. Optional secrets still override the PDF defaults when you set them.
 
 ---
 

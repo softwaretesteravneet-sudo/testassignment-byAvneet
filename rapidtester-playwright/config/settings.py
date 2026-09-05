@@ -16,15 +16,6 @@ def env(name: str, default: str = "") -> str:
     return value.strip() if value else default
 
 
-def require_env(name: str) -> str:
-    value = env(name)
-    if not value:
-        raise RuntimeError(
-            f"Missing {name}. Copy .env.example to .env and fill it from the assignment PDF."
-        )
-    return value
-
-
 @dataclass(frozen=True)
 class Settings:
     """Environment and application URLs only. Users live in testdata/."""
@@ -58,8 +49,8 @@ def get_settings() -> Settings:
     return Settings(
         base_url=env("BASE_URL", "https://auth.pre.stgrapidusertests.com"),
         app_url=env("APP_URL", "https://app.pre.stgrapidusertests.com"),
-        basic_auth_username=require_env("BASIC_AUTH_USERNAME"),
-        basic_auth_password=require_env("BASIC_AUTH_PASSWORD"),
-        auth0_host=require_env("AUTH0_HOST"),
-        auth0_client_id=require_env("AUTH0_CLIENT_ID"),
+        basic_auth_username=env("BASIC_AUTH_USERNAME", "yahia"),
+        basic_auth_password=env("BASIC_AUTH_PASSWORD", "Wd&#vQ7VtUSn#3"),
+        auth0_host=env("AUTH0_HOST", "dev-ouz1ykna54idw2k0.eu.auth0.com"),
+        auth0_client_id=env("AUTH0_CLIENT_ID", "CUHSa2cR8RgRri4P1NOQpXryfZPW7Ppy"),
     )

@@ -1,13 +1,13 @@
 from __future__ import annotations
 
-from config.settings import env, require_env
+from config.settings import env
 from testdata.models import User
 
 
 def standard_user() -> User:
     return User(
-        email=require_env("LOGIN_EMAIL"),
-        password=require_env("LOGIN_PASSWORD"),
+        email=env("LOGIN_EMAIL", "your.email+fakedata44336@gmail.com"),
+        password=env("LOGIN_PASSWORD", "fakedata44336!"),
     )
 
 
